@@ -1,0 +1,22 @@
+lista = [10, 13, 15, 19, 23, 24, 27, 31, 33, 35, 37]
+lista.sort()
+
+def calculo_percentil(lista, p):
+    n = len(lista)
+
+    posicao = (p / 100) * (n - 1) #pega o a posição do percentil pedido. Ex: 25% = posição 2,5 da lista  
+
+    indice_inferior = int(posicao)
+    indice_superior = indice_inferior + 1
+
+    valor_inferior = lista[indice_inferior]
+    valor_superior = lista[indice_superior]
+
+    valor = (valor_inferior + valor_superior) / 2
+
+    return valor
+
+p25 = calculo_percentil(lista, 25)
+p75 = calculo_percentil(lista, 75)
+print(p25)
+print(p75)
