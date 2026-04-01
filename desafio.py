@@ -4,9 +4,14 @@ lista.sort()
 def calculo_percentil(lista, p):
     n = len(lista)
 
-    posicao = (p / 100) * (n - 1) #pega o a posição do percentil pedido. Ex: 25% = posição 2,5 da lista  
+    posicao = (p / 100) * (n - 1)
 
     indice_inferior = int(posicao)
+
+    # Se for inteira. Ex: mediana
+    if posicao == indice_inferior:
+        return lista[indice_inferior]
+
     indice_superior = indice_inferior + 1
 
     valor_inferior = lista[indice_inferior]
@@ -16,7 +21,12 @@ def calculo_percentil(lista, p):
 
     return valor
 
+
 p25 = calculo_percentil(lista, 25)
+p50 = calculo_percentil(lista, 50)
 p75 = calculo_percentil(lista, 75)
-print(p25)
-print(p75)
+
+print("\n📊 Resultados dos Percentis:")
+print(f"P25: {p25}")
+print(f"P50 (Mediana): {p50}")
+print(f"P75: {p75}")
